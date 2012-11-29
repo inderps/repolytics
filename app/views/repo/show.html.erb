@@ -1,0 +1,6 @@
+<%= form_for(@story, :url => story_committers_path, :as => :story) do |s| %>
+    <%= s.text_field :number %>
+    <%= s.hidden_field :owner %>
+    <%= s.hidden_field :repo %>
+    <%= submit_tag 'Search' %>
+<% end %>

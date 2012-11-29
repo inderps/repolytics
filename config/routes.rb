@@ -2,7 +2,8 @@ Repolytics::Application.routes.draw do
   get "github/authorize"
   get "github/callback"
   get "/repos" => "repo#index"
-  get "/repos/:id" => "repo#show"
+  get "/repos/:repo" => "repo#show"
+  post "/stories/committers" => "stories#committers", :as => :story_committers
   get "test/index"
 
   # The priority is based upon order of creation:

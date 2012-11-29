@@ -4,8 +4,6 @@ class RepoController < ApplicationController
   end
 
   def show
-    @commits = Commit.all(:access_token => session[:token], :_owner => params[:owner], :_repo => params[:id])
-    require 'pry'
-    binding.pry
+    @story = Story.new(:repo => params[:repo], :owner => params[:owner])
   end
 end
