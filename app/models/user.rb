@@ -12,4 +12,8 @@ class User
       return parsed_data[:data][:access_token]
     end
   end
+
+  def self.me token
+     get("user", :access_token => token)
+  end
 end
