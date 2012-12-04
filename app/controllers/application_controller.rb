@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
       redirect_to :controller => 'github', :action => 'authorize'
     end
   end
+
+  def load_repo
+    @repo = Repo.find_or_create_by_name(params[:repo])
+  end
 end

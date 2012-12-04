@@ -3,6 +3,8 @@ Repolytics::Application.routes.draw do
   get "github/callback"
   get "/repos" => "repo#index"
   get "/repos/:repo" => "repo#show"
+  post "/repos/:repo/committers" => "committers#create"
+  get "/repos/:repo/settings" => "repo#settings"
   post "/stories/committers" => "stories#committers", :as => :story_committers
   get "test/index"
 

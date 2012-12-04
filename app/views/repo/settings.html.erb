@@ -1,0 +1,5 @@
+<%= javascript_include_tag "settings" %>
+<script type="text/javascript" src="/js/jquery.tagsinput.min.js"> </script>
+<link rel="stylesheet" type="text/css" href="/css/jquery.tagsinput.css" />
+
+<input name="tags" id="tags" value="<%= @committers.collect(&:name).join(',') %>" />

@@ -9,8 +9,8 @@ class Story
 
   def committers
     commits = Commit.all(:access_token => @token, :_owner => @owner, :_repo => @repo)
-    messages = commits.collect(&:commit).collect{ |commit| commit[:message] }.select{ |msg| msg.include?("##{@number}") }
-    committers = Committer.all
+    messages = commits.collect(&:commit).collect{ |commit| commit[:message] }.select{ |msg| msg.include?("#{@number}") }
+    committers = Committer.where(:repo_id => Repo.find_by_name(@repo).id)
     committer_hash = []
     committers.each do |committer|
       no_of_commits = get_no_of_commits(committer, messages)

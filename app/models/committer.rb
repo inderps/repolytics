@@ -1,11 +1,5 @@
-class Committer
-  attr_accessor :name
+class Committer < ActiveRecord::Base
+  attr_accessible :name
 
-  def initialize name
-    @name = name
-  end
-
-  def self.all
-    [new("megha"), new("ips"), new("kaimal")]
-  end
+  belongs_to :repo
 end
