@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121204195307) do
+ActiveRecord::Schema.define(:version => 20121205194035) do
+
+  create_table "commits", :force => true do |t|
+    t.string   "sha"
+    t.string   "message"
+    t.integer  "repo_id"
+    t.integer  "story_id"
+    t.integer  "commtter1_id"
+    t.integer  "commtter2_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "committers", :force => true do |t|
     t.string   "name"
@@ -23,6 +34,13 @@ ActiveRecord::Schema.define(:version => 20121204195307) do
   create_table "repos", :force => true do |t|
     t.string   "name"
     t.string   "owner"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "stories", :force => true do |t|
+    t.integer  "number"
+    t.integer  "repo_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
