@@ -1,5 +1,5 @@
 class Commit < ActiveRecord::Base
-  attr_accessible :sha, :message
+  attr_accessible :sha, :message, :committer1, :committer2, :repo, :story
 
   belongs_to :story
   belongs_to :repo

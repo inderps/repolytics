@@ -6,7 +6,7 @@ class RepoController < ApplicationController
   end
 
   def show
-    @story = Story.new(:repo => @repo.name, :owner => @repo.owner)
+    @story = Story.new(:repo_id => @repo.id)
   end
 
   def settings
