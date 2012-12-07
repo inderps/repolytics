@@ -5,7 +5,7 @@
   </tr>
   <%= @committers.each do |committer| %>
     <tr>
-      <td><%= committer[:committer].name %></td>
+      <td><%= committer[:name] %></td>
       <td><%= committer[:no_of_commits] %></td>
     </tr>
   <% end %>

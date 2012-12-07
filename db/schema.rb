@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(:version => 20121205194035) do
     t.string   "message"
     t.integer  "repo_id"
     t.integer  "story_id"
-    t.integer  "commtter1_id"
-    t.integer  "commtter2_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.integer  "committer1_id"
+    t.integer  "committer2_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "committers", :force => true do |t|

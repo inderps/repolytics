@@ -5,8 +5,8 @@ class CreateCommits < ActiveRecord::Migration
       t.string :message
       t.references :repo
       t.references :story
-      t.references :commtter1
-      t.references :commtter2
+      t.references :committer1
+      t.references :committer2
       t.timestamps
     end
   end
