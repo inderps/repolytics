@@ -1,11 +1,19 @@
 class StoriesController < ApplicationController
   def committers
+    @committers = {}
     story = Story.new(params["story"])
     story.instance_variable_set(:@token, session[:token])
     story.commits
     real_story = Story.find_by_number_and_repo_id(story.number, story.repo_id)
     commits = real_story.commits_without_sync
-    committers = commits.collect { |commit| [commit.committer1, commit.committer2] }.flatten.compact
-    @committers = committers.group_by { |c| c.name }.map { |k, v| {:name => k, :no_of_commits=>v.size} }
+
+    commits.each do |commit|
+      append_committers commit.committer1
+      append_committers commit.committer2
+    end
+  end
+
+  def append_committers committer
+    @committers[committer.name] = (@committers[committer.name] + 1) rescue 1 if committer.present?
   end
 end

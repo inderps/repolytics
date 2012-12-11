@@ -29,7 +29,7 @@ class Story < ActiveRecord::Base
       msg = github_commit.commit[:message]
       committers = repo.committers.select { |committer| msg.include?(committer.name) }
       story_no = extract_story_no msg
-      if story_no.nil?
+      if story_no.present?
         story = Story.find_or_create_by_number(extract_story_no(msg))
         repo.stories << story
       end

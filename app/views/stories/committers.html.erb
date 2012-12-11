@@ -3,10 +3,10 @@
     <td>Name</td>
     <td>No Of Commits</td>
   </tr>
-  <%= @committers.each do |committer| %>
+  <%= @committers.each do |name,no_of_commits| %>
     <tr>
-      <td><%= committer[:name] %></td>
-      <td><%= committer[:no_of_commits] %></td>
+      <td><%= name %></td>
+      <td><%= no_of_commits %></td>
     </tr>
   <% end %>
 </table>
